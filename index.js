@@ -18,7 +18,7 @@ app.get('/users', (req, res) => {
             return res
                 .send({
                     users: sanitizeData(paginate(response.data, first, rows), usedKeys),
-                    pages: Math.ceil(response.data.length / rows),
+                    total: response.data.length,
                 })
         })
         .catch(() => {
